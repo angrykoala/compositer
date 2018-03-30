@@ -2,6 +2,8 @@ Compositer
 ==========
 _by @angrykoala_
 
+[![npm version](https://badge.fury.io/js/compositer.svg)](https://badge.fury.io/js/compositer)
+
 Compositer is an utility to generate [composed](https://en.wikipedia.org/wiki/Composition_over_inheritance) ES6 classes dynamically.
 
 `npm install --save compositer`
