@@ -1,6 +1,5 @@
 "use strict";
 
-
 function composeModule(cls, name, ChildClass, ...params) {
     const instance = new ChildClass(cls, ...params);
     Object.defineProperty(cls, name, {
