@@ -1,0 +1,31 @@
+{
+  "name": "compositer",
+  "version": "0.1.0",
+  "description": "Utility to generate composite classes dynamically",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests --recursive"
+  },
+  "files": [
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angrykoala/compositer.git"
+  },
+  "keywords": [
+    "composite",
+    "class",
+    "es6"
+  ],
+  "author": "angrykoala <angrykoala@outlook.es>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/angrykoala/compositer/issues"
+  },
+  "homepage": "https://github.com/angrykoala/compositer#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "mocha": "^5.0.5"
+  }
+}
