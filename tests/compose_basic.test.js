@@ -75,4 +75,13 @@ describe("Compose", () => {
         assert.strictEqual(instance.child.sayHi(), "Hi World");
     });
 
+
+    it("Composite Name", () => {
+        const components = {
+            child: ChildHelper
+        };
+        const Composite = compose(ParentHelper, components);
+        assert.strictEqual(Composite.name, "ParentHelperComposite");
+    });
+
 });

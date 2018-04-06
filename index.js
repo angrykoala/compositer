@@ -18,12 +18,16 @@ function composeModule(cls, name, ChildClass, ...params) {
 
 module.exports = function compose(BaseClass, components, ...childParams) {
     _validateComponents(components);
-    return class BaseClassComposite extends BaseClass {
-        constructor(...params) {
-            super(...params);
-            for(const name in components) {
-                composeModule(this, name, components[name], ...childParams);
+    const name = `${BaseClass.name }Composite`;
+    const obj = {
+        [name]: class extends BaseClass { // Some Magic to create a dynamic class name
+            constructor(...params) {
+                super(...params);
+                for(const name in components) {
+                    composeModule(this, name, components[name], ...childParams);
+                }
             }
         }
     };
+    return obj[name];
 };
