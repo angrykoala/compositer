@@ -84,4 +84,19 @@ describe("Compose", () => {
         assert.strictEqual(Composite.name, "ParentHelperComposite");
     });
 
+    it("Parent Components Names Argument", () => {
+        const components = {
+            child: ChildHelper,
+            child2: ChildHelper2,
+            extra: ChildHelper
+        };
+        const Composite = compose(ParentHelper, components);
+        const instance = new Composite(10);
+        assert.strictEqual(instance._components.length, 3);
+        assert.strictEqual(instance._components[0], "child");
+        assert.strictEqual(instance._components[1], "child2");
+        assert.strictEqual(instance._components[2], "extra");
+
+    });
+
 });

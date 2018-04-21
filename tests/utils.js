@@ -1,8 +1,9 @@
 "use strict";
 
 class ParentHelper {
-    constructor(v) {
+    constructor(v, components) {
         this._value = v;
+        this._components = components;
     }
 
     get value() {
