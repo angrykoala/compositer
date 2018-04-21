@@ -48,12 +48,11 @@ myComposite.myChild.value; // 1000
 Composer exposes one function to generate composite classes:
 
 **compose(ParentClass, components, ...extraParams?)**    
-    * ParentClass is the class that will have the child attached to.
-    * components is an object with keys being the name to use for the instance and value the child class. Same child class can be used multiple times.
-    * extraParams allow you to add params to the child classes constructors.
-    * Returns a new class that will instance the child classes. The class will be named the same as the ParentClass with "Composite" at the end.
-    * ParentClass will receive an extra parameter with a list of all its components names, allowing it to access dynamically
-
+  * ParentClass is the class that will have the child attached to.
+  * components is an object with keys being the name to use for the instance and value the child class. Same child class can be used multiple times.
+  * extraParams allow you to add params to the child classes constructors.
+  * Returns a new class that will instance the child classes. The class will be named the same as the ParentClass with "Composite" at the end.
+  * ParentClass will receive an extra parameter with a list of all its components names, allowing it to access dynamically
 
 ## Development Instructions
 After cloning the repo:
