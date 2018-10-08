@@ -1,13 +1,15 @@
 "use strict";
+const isClass = require('is-class');
 
-function _validateComponents(components) {
+function validateComponents(components) {
     for(const name in components) {
         const component = components[name];
-        if(typeof component !== 'function') throw new TypeError(`${component} is not a class`);
+        if(typeof component !== 'function') throw new TypeError(`${component} is not a class nor a function`);
     }
 }
 
-function composeModule(cls, name, ChildClass, ...params) {
+
+function composeClass(cls, name, ChildClass, ...params) {
     const instance = new ChildClass(cls, ...params);
     Object.defineProperty(cls, name, {
         get() {
@@ -16,8 +18,22 @@ function composeModule(cls, name, ChildClass, ...params) {
     });
 }
 
+function composeFunction(cls, name, childFunction, ...params) {
+    Object.defineProperty(cls, name, {
+        value(...args) {
+            return childFunction(cls, ...params.concat(args));
+        },
+        writable: false
+    });
+}
+
+function composeModule(cls, name, compositeModule, ...params) {
+    if(isClass(compositeModule)) composeClass(cls, name, compositeModule, ...params);
+    else composeFunction(cls, name, compositeModule, ...params);
+}
+
 module.exports = function compose(BaseClass, components, ...childParams) {
-    _validateComponents(components);
+    validateComponents(components);
     const name = `${BaseClass.name }Composite`;
     const componentsNames = Object.keys(components);
     const obj = {

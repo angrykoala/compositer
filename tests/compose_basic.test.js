@@ -2,7 +2,7 @@
 
 const assert = require('assert');
 const compose = require('..');
-const {ParentHelper, ChildHelper, ChildHelper2} = require('./utils');
+const {ParentHelper, ChildHelper, ChildHelper2, childHelperFunction} = require('./utils');
 
 
 describe("Compose", () => {
@@ -75,7 +75,6 @@ describe("Compose", () => {
         assert.strictEqual(instance.child.sayHi(), "Hi World");
     });
 
-
     it("Composite Name", () => {
         const components = {
             child: ChildHelper
@@ -96,7 +95,15 @@ describe("Compose", () => {
         assert.strictEqual(instance._components[0], "child");
         assert.strictEqual(instance._components[1], "child2");
         assert.strictEqual(instance._components[2], "extra");
-
     });
 
+    it("Compose Function", () => {
+        const components = {
+            child: childHelperFunction
+        };
+        const Composite = compose(ParentHelper, components, 20);
+        const instance = new Composite(10);
+        assert.strictEqual(instance.value, 10);
+        assert.strictEqual(instance.child(30), 60); // 10 + 20 + 30
+    });
 });

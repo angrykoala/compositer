@@ -27,9 +27,14 @@ class ChildHelper2 {
     }
 }
 
+function childHelperFunction(parent, extraValue, value) {
+    return parent.value + extraValue + value;
+}
+
 
 module.exports = {
     ParentHelper,
     ChildHelper,
-    ChildHelper2
+    ChildHelper2,
+    childHelperFunction
 };
