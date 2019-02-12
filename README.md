@@ -3,6 +3,7 @@ Compositer
 _by @angrykoala_
 
 [![npm version](https://badge.fury.io/js/compositer.svg)](https://badge.fury.io/js/compositer)
+[![Build Status](https://travis-ci.org/angrykoala/compositer.svg?branch=master)](https://travis-ci.org/angrykoala/compositer)
 
 Compositer is an utility to generate [composed](https://en.wikipedia.org/wiki/Composition_over_inheritance) ES6 classes dynamically.
 
