@@ -1,0 +1,15 @@
+language: node_js
+os:
+    - linux
+node_js:
+    - "stable"
+    - "lts/*"
+sudo: false
+
+script:
+  - travis_retry npm test
+  - npm run lint
+
+cache:
+  directories:
+    - node_modules

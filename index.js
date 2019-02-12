@@ -1,4 +1,5 @@
 "use strict";
+
 const isClass = require('is-class');
 
 function validateComponents(components) {
